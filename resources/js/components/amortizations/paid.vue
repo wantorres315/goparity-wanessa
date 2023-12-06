@@ -1,7 +1,7 @@
 <script>
 
 export default {
-    name: 'amortization-list',
+    name: 'amortization-paid',
 
     created() {
     this.paginate()
@@ -30,48 +30,13 @@ export default {
             this.pages = pagesArray.filter(currentPage => currentPage >= 1 && currentPage <= totalPages);
             this.totalPages = totalPages;
         },
-        paid: function (id) {
-            const urlApi = "/api/amortizations/paid/"+id;
-
-            axios.get(urlApi)
-            .then(response => {
-                console.log('Resposta da API:', response.data);
-
-                // Atualizar a propriedade "paid" para true para ocultar o botão e exibir o texto
-                const index = this.amortizations.findIndex(item => item.id === id);
-                if (index !== -1) {
-                    this.amortizations[index].paid = true;
-                    
-                }
-                
-            })
-            .catch(error => {
-                console.error('Error to finish the payment:', error);
-            });
-            this.paginate(this.currentPage);
-        },
+        
        
         searchMachine(){
             this.apiUrl = '/api/amortizations/getAllPaid/'+this.searchQuery
             this.paginate();
         },
-        sendSelectedItems() {
-            if (this.selectedItems.length > 0) {
-                const urlApiSelectedAll = '/api/amortizations/paid_batch'; 
-                const data = { selectedItems: this.selectedItems };
-
-                axios.post(urlApiSelectedAll, data)
-                    .then(response => {
-                        alert('Items paid successfully. Please wait a moment as your items are being processed.')
-                        console.log('Response from Laravel:', response.data);
-                    })
-                    .catch(error => {
-                        console.error('Error sending selected items:', error);
-                    });
-            } else {
-                console.warn('No items selected.');
-            }
-        }
+       
     }
 }
 </script>
