@@ -35,9 +35,7 @@ export default {
 
             axios.get(urlApi)
             .then(response => {
-                console.log('Resposta da API:', response.data);
-
-                // Atualizar a propriedade "paid" para true para ocultar o botão e exibir o texto
+                alert('Items paid successfully. Please wait a moment as your items are being processed.')
                 const index = this.amortizations.findIndex(item => item.id === id);
                 if (index !== -1) {
                     this.amortizations[index].paid = true;
@@ -62,7 +60,7 @@ export default {
             }
         },
         searchMachine(){
-            this.apiUrl = '/api/get_all_amortizations/'+this.searchQuery
+            this.apiUrl = '/api/amortizations/get_all_amortizations/'+this.searchQuery
             this.paginate();
         },
         sendSelectedItems() {
@@ -94,8 +92,8 @@ export default {
             </div>
             <div>
                 
-                <button  type="button" class="btn btn-light" :class="{ 'd-none': selectedItems.length === 0 }" placeholder="Search amortization" @click="sendSelectedItems">Paid All Selected</button>
-                <a class="btn btn-secondary" >
+                <button  type="button" class="btn btn-light" :class="{ 'd-none': selectedItems.length === 0 }" placeholder="Search amortization" @click="sendSelectedItems">Pay All Selected</button>
+                <a class="btn btn-secondary" href="/amortizations/paid" >
                     Paid Amortizations
                 </a>
             </div>

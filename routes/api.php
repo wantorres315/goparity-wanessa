@@ -16,7 +16,7 @@ use App\Http\Controllers\ProjectController;
 */
 Route::group(["prefix"=> "amortizations"], function () {
     Route::get('/get_all_amortizations/{query?}', [AmortizationController::class,'get_all_amortizations']);
-    Route::get('/getAllPaid', [AmortizationController::class,'getAllPaid']);
+    Route::get('/getAllPaid/{query?}', [AmortizationController::class,'getAllPaid']);
     Route::get('/paid/{id}',  [AmortizationController::class,'paid']);
     Route::post('paid_batch',[AmortizationController::class,'paid_batch']);
 });

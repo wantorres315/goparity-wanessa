@@ -50,19 +50,9 @@ export default {
             });
             this.paginate(this.currentPage);
         },
-        selectAllCheckboxes() {
-            this.selectAll = !this.selectAll;
-            if (this.selectAll) {
-                this.$nextTick(() => {
-                this.selectedItems = this.amortizations.map(item => item.id);
-
-                });
-            } else {
-                this.selectedItems = [];
-            }
-        },
+       
         searchMachine(){
-            this.apiUrl = '/api/get_all_amortizations/'+this.searchQuery
+            this.apiUrl = '/api/amortizations/getAllPaid/'+this.searchQuery
             this.paginate();
         },
         sendSelectedItems() {

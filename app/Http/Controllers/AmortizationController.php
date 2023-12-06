@@ -26,7 +26,7 @@ class AmortizationController extends Controller
                     $query->where('name', 'like', '%' . $search . '%');
                 });
             })
-            ->orderBy('schedule_date', 'asc')->orderBy('project.wallet','asc')->paginate(500);
+            ->orderBy('schedule_date', 'asc')->paginate(500);
         }
         $amortizations->transform(function ($amortization) {
             if($amortization->project->wallet < 0){
@@ -77,7 +77,7 @@ class AmortizationController extends Controller
                     $query->where('name', 'like', '%' . $search . '%');
                 });
             })
-            ->orderBy('schedule_date', 'asc')->orderBy('project.wallet','asc')->paginate(500);
+            ->orderBy('schedule_date', 'asc')->paginate(500);
         }
         $amortizations->transform(function ($amortization) {
             if($amortization->project->wallet < 0){
