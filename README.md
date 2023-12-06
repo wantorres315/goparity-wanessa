@@ -19,4 +19,5 @@ Install Project:
 >php artisan queue:work
 
 Thanks for the opportunity
+
 Wanessa Motta
