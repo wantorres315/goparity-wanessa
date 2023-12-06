@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('amortization_id')->references('id')->on('amortizations');
             $table->decimal('amount',9,2);
             $table->integer('state');
+            $table->text('reason');
             $table->timestamps();
         });
     }

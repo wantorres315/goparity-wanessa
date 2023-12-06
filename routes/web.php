@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/amortizations', [ \App\Http\Controllers\PaymentController::class,'index'])->name('amortizations.index');
+
+Route::get('/{pathMatch}', function(){
+    return view('welcome');
+})->where('pathMatch',".*");
+
+Route::get('/',function() {
     return view('welcome');
 });
-Route::get('/exec-job', [\App\Http\Controllers\PaymentController::class,'index']);

@@ -14,7 +14,7 @@ class ProjectsSeeder extends Seeder
     public function run(): void
     {
         $projects = [];
-        for($i=0;$i<5000;$i++){
+        for($i=0;$i<10;$i++){
             $projects[] = [
                 "name"=> "Projeto ".$i,
                 "promoter_id" => mt_rand (1, 10),

@@ -1,7 +1,7 @@
 
 # Test Goparity Wanessa Motta
 
-Amortization Payment System in Laravel and Node.js
+Amortization Payment System in Laravel and vue.js
 
 > The system was based on a queue system for handling a large amount of data. Therefore, it needs to run the queue for things to happen (or in the future, consider adding Redis or a queue manager from Amazon, for example).
 
